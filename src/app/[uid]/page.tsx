@@ -1,8 +1,10 @@
+
 import { Metadata } from 'next'
 import Header from '../../components/Header'
 import { createClient } from '../../prismicio';
-import { Box, Flex, Grid, GridItem, Heading, Text } from '@chakra-ui/react';
+import { Box, Flex, Grid, GridItem, Heading, Text, Tooltip } from '@chakra-ui/react';
 import Cities from '../../components/Cities';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Continente',
@@ -69,12 +71,16 @@ export default async function Continent({ params }: { params: { uid: string } })
                     <Text fontWeight="600" fontSize={{ base: "24px", xl: "48px" }} color="#FFBA08" lineHeight="normal">
                       {continent.data.quantity_cities}
                     </Text>
-                    <Text fontWeight="600" fontSize={{ base: "18px", xl: "24px" }} lineHeight="normal">
-                      cidades +100
-                    </Text>
+                    <Flex>
+                      <Text fontWeight="600" fontSize={{ base: "18px", xl: "24px" }} lineHeight="normal" mr="5px">
+                        cidades +100
+                      </Text>
+                      <Tooltip label="informações">
+                        <Image src="/images/information.svg" alt="Informações" width={16} height={16} />
+                      </Tooltip>
+                    </Flex>
                   </Box>
                 </GridItem>
-
               </Grid>
             </Box>
           </GridItem>
@@ -82,7 +88,7 @@ export default async function Continent({ params }: { params: { uid: string } })
         <Heading my={20}>
           Cidades +100
         </Heading>
-        <Cities cities={continent.data.cities}/>
+        <Cities cities={continent.data.cities} />
       </Flex>
 
     </>
