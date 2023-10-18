@@ -10,7 +10,7 @@ export const theme = extendTheme({
     }
   },
   fonts: {
-    heading: '--font-poppins',
+    // headings: '--font-poppins',
     body: '--font-poppins',
   },
   styles: {
